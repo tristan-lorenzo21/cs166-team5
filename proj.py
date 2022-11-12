@@ -21,19 +21,7 @@ while True:
     response = int(input())
 
     if response == 1:
-        # import requests
-
-        # url = "https://wordsapiv1.p.rapidapi.com/words/"
-
-        # querystring = {"random":"true"}
-
-        # headers = {
-	    #     "X-RapidAPI-Key": "428f72a9f9msh71aa9e090b81f69p1b4d14jsnb8a4fa7e93d4",
-	    #     "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com"
-        # }   
-
-        # data = requests.get(url, headers=headers, params=querystring).json()
-        print("Random word: ", data)
+        print("Random word: ")
     elif response == 2:
         print("\nGenerating a password")
     elif response == 3:
