@@ -1,6 +1,10 @@
 import requests
 import json
+import random
+
 from random_word import Wordnik
+from secret import api_key
+
 wordnik_service = Wordnik()
 
 def print_menu():
@@ -18,10 +22,18 @@ def print_menu():
 while True:
     print_menu()
 
-    response = int(input())
+    response = int(input("\n"))
 
     if response == 1:
-        print("Random word: ")
+        # 
+        word_num = random.randint(5, 6)
+        response = requests.get("https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=10000&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=8&limit={}&api_key={}".format(word_num, api_key))
+        word_array = []
+
+        for obj in response.json():
+            word_array.append((obj['word']))
+
+        print("Generated Passphrase: " + ' '.join(word_array))   
     elif response == 2:
         print("\nGenerating a password")
     elif response == 3:
