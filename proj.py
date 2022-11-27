@@ -68,7 +68,31 @@ while True:
         # returns the generated passphrase
         print("Generated Passphrase: " + ' '.join(ret_array))   
     elif response == 2:
-        print("\nGenerating a password")
+        # define the alphabet
+        letters = string.ascii_letters
+        digits = string.digits
+        special_chars = string.punctuation
+
+        alphabet = letters + digits + special_chars
+
+        # fix password length
+        pwd_length = 16
+
+        # generate a password string
+        pwd = ''
+        for i in range(pwd_length):
+            pwd += ''.join(secrets.choice(alphabet))
+
+        # generate password meeting constraints
+        while True:
+            pwd = ''
+            for i in range(pwd_length):
+                pwd += ''.join(secrets.choice(alphabet))
+
+            if (any(char in special_chars for char in pwd) and 
+                sum(char in digits for char in pwd)>=2):
+                break
+        print("password: " + pwd)
     elif response == 3:
         password_input = input("Input the password you want to test: \n")
         print("Password strength of " , password_input, "is strong")
