@@ -6,6 +6,7 @@ import secrets
 
 from random_word import Wordnik
 from secret import api_key
+from password_evaluate import password_evaluate
 
 wordnik_service = Wordnik()
 
@@ -95,7 +96,7 @@ while True:
         print("password: " + pwd)
     elif response == 3:
         password_input = input("Input the password you want to test: \n")
-        print("Password strength of " , password_input, "is strong")
+        password_evaluate(password_input)
     else:
         print("\nExiting program")
         break
