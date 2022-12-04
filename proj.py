@@ -2,7 +2,6 @@ from password_evaluate import password_evaluate
 from passphrase_generator import generate_passphrase
 from password_generator import generate_password
 
-
 def print_menu():
     print("""
     --------------------------------------------
