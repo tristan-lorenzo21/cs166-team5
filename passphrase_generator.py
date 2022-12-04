@@ -4,10 +4,7 @@ import random
 import string
 import secrets
 
-from random_word import Wordnik
 from secret import api_key
-
-wordnik_service = Wordnik()
 
 def generate_passphrase(): 
     # generates a random number that will be used to generate the amount of words the api request will produce
